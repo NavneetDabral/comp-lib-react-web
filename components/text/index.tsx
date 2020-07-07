@@ -1,12 +1,13 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 import { TextTypes } from './types'
 
 interface TextProps {
-  content: string
-  type: TextTypes
+    content: string
+    type: TextTypes
 }
 
-{/* W3C
+{
+    /* W3C
 <b> - Bold text
 <strong> - Important text
 <i> - Italic text
@@ -16,7 +17,8 @@ interface TextProps {
 <del> - Deleted text
 <ins> - Inserted text
 <sub> - Subscript text
-<sup> - Superscript te */}
+<sup> - Superscript te */
+}
 
 const H1 = (content: string): JSX.Element => <h1>{content}</h1>
 const H2 = (content: string): JSX.Element => <h2>{content}</h2>
@@ -35,30 +37,27 @@ const Sub = (content: string): JSX.Element => <sub>{content}</sub>
 const Sup = (content: string): JSX.Element => <sup>{content}</sup>
 const Plain = (content: string): JSX.Element => <>{content}</>
 
-
 const txtMapper = new Map<TextTypes, any>([
-  [TextTypes.h1, H1],
-  [TextTypes.h2, H2],
-  [TextTypes.h3, H3],
-  [TextTypes.h4, H4],
-  [TextTypes.h5, H5],
-  [TextTypes.h6, H6],
-  [TextTypes.b, B],
-  [TextTypes.strong, Strong],
-  [TextTypes.i, I],
-  [TextTypes.em, Em],
-  [TextTypes.mark, Mark],
-  [TextTypes.del, Del],
-  [TextTypes.ins, Ins],
-  [TextTypes.sup, Sup],
-  [TextTypes.sub, Sub],
-  [TextTypes.plain , Plain]
+    [TextTypes.h1, H1],
+    [TextTypes.h2, H2],
+    [TextTypes.h3, H3],
+    [TextTypes.h4, H4],
+    [TextTypes.h5, H5],
+    [TextTypes.h6, H6],
+    [TextTypes.b, B],
+    [TextTypes.strong, Strong],
+    [TextTypes.i, I],
+    [TextTypes.em, Em],
+    [TextTypes.mark, Mark],
+    [TextTypes.del, Del],
+    [TextTypes.ins, Ins],
+    [TextTypes.sup, Sup],
+    [TextTypes.sub, Sub],
+    [TextTypes.plain, Plain],
 ])
 
 const Text: FC<TextProps> = ({ content, type }: TextProps) => {
-  return (
-    txtMapper.get(type)(content)
-  )
+    return txtMapper.get(type)(content)
 }
 
 export { Text }
