@@ -6,20 +6,6 @@ interface TextProps {
     type: TextTypes
 }
 
-{
-    /* W3C
-<b> - Bold text
-<strong> - Important text
-<i> - Italic text
-<em> - Emphasized text
-<mark> - Marked text
-<small> - Smaller text
-<del> - Deleted text
-<ins> - Inserted text
-<sub> - Subscript text
-<sup> - Superscript te */
-}
-
 const H1 = (content: string): JSX.Element => <h1>{content}</h1>
 const H2 = (content: string): JSX.Element => <h2>{content}</h2>
 const H3 = (content: string): JSX.Element => <h3>{content}</h3>
