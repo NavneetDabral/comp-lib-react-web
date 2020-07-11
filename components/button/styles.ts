@@ -8,7 +8,7 @@ interface SButtonProps {
 const SButton = styled.button<SButtonProps>`
     color: black;
     font-size: 1em;
-    margin: 1em;
+    margin: 12px;
     padding: 0.25em 1em;
     border-radius: 3px;
     border: none;
@@ -18,7 +18,7 @@ const SButton = styled.button<SButtonProps>`
     ${(props) =>
         props.bType === ButtonTypes.PRIMARY &&
         css`
-            background-color: blue;
+            background-color: #714cfe;
             color: white;
             &:active {
                 transform: translateY(1px);
@@ -27,9 +27,9 @@ const SButton = styled.button<SButtonProps>`
     ${(props) =>
         props.bType === ButtonTypes.SECONDARY &&
         css`
-            color: blue;
-            border-color: blue;
-            border: solid 1px blue;
+            color: #714cfe;
+            border-color: #714cfe;
+            border: solid 1px #714cfe;
             background-color: transparent;
             &:active {
                 transform: translateY(1px);
@@ -38,7 +38,7 @@ const SButton = styled.button<SButtonProps>`
     ${(props) =>
         props.bType === ButtonTypes.TERTIARY &&
         css`
-            color: blue;
+            color: #714cfe;
             background-color: transparent;
             border: none;
             &:active {
