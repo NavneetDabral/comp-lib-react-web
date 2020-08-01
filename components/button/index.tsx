@@ -5,9 +5,18 @@ import { ButtonTypes } from './types'
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     label: string
     bType: ButtonTypes
+    hide?: boolean
 }
 
-const Button: FC<ButtonProps> = ({ label, bType, ...props }: ButtonProps) => {
+const Button: FC<ButtonProps> = ({
+    label,
+    bType,
+    hide = false,
+    ...props
+}: ButtonProps) => {
+    if (hide) {
+        return null
+    }
     return (
         <SButton bType={bType} {...props}>
             {label}
