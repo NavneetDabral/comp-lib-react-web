@@ -57,7 +57,7 @@ const Sup = (content: string, style: any): JSX.Element => (
     <sup style={style}>{content}</sup>
 )
 const Plain = (content: string, style: any): JSX.Element => (
-    <p style={style}>{content}</p>
+    <div style={style}>{content}</div>
 )
 
 const txtMapper = new Map<TextTypes, any>([

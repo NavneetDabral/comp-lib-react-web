@@ -1,4 +1,4 @@
-import React, { MouseEvent, FC } from 'react'
+import React, { MouseEvent, FC, ReactElement } from 'react'
 import { SButton } from './styles'
 import { ButtonTypes } from './types'
 
@@ -6,6 +6,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     label: string
     bType: ButtonTypes
     hide?: boolean
+    icon?: ReactElement
+    onClick?: (e: MouseEvent<HTMLButtonElement>) => void
 }
 
 const Button: FC<ButtonProps> = ({
@@ -18,8 +20,8 @@ const Button: FC<ButtonProps> = ({
         return null
     }
     return (
-        <SButton bType={bType} {...props}>
-            {label}
+        <SButton bType={bType} onClick={props.onClick}>
+            {props.icon} {label}
         </SButton>
     )
 }

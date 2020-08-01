@@ -1,9 +1,14 @@
 import React, { FC } from 'react'
-import { Text , TextTypes } from '../text'
+import { Text, TextTypes } from '../text'
+import { Box } from '../box'
+import { Spacer } from '../spacer'
+import { CheckBoxOutlineBlank } from '@styled-icons/material/CheckBoxOutlineBlank'
+import { CheckBox } from '@styled-icons/material/CheckBox'
+import { styles } from './styles'
 
 interface CheckBoxProps {
     hide?: boolean
-    isChecked:boolean
+    isChecked: boolean
     title: string
     size?: number
     color?: string
@@ -11,15 +16,29 @@ interface CheckBoxProps {
 
 const Checkbox: FC<CheckBoxProps> = ({
     hide = false,
+    isChecked = false,
     ...props
 }: CheckBoxProps) => {
     if (hide) {
         return null
     }
+    const checkIcon = isChecked ? (
+        <CheckBox size={props.size || 16} color={props.color} />
+    ) : (
+        <CheckBoxOutlineBlank size={props.size || 16} color={props.color} />
+    )
     return (
-         
-       <Text content={props.title} type={TextTypes.plain} fontSize={props.size}/>
-        )
+        <Box style={styles.container}>
+            {checkIcon}
+            <Spacer size={10} />
+            <Text
+                content={props.title}
+                type={TextTypes.plain}
+                fontSize={props.size || 16}
+                textColor={props.color}
+            />
+        </Box>
+    )
 }
 
 export { Checkbox }
