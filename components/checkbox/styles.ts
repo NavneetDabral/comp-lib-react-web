@@ -2,8 +2,8 @@ const styles = {
     container: {
         display: 'flex',
         'flex-direction': 'row',
-        'justify-content': 'space-between',
-        'align-Items': 'center',
+        'justify-content': 'center',
+        'align-items': 'center',
     },
 }
 

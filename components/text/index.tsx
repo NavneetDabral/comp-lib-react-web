@@ -56,7 +56,7 @@ const Sub = (content: string, style: any): JSX.Element => (
 const Sup = (content: string, style: any): JSX.Element => (
     <sup style={style}>{content}</sup>
 )
-const Plain = (content: string, style: any): JSX.Element => (
+const Custom = (content: string, style: any): JSX.Element => (
     <div style={style}>{content}</div>
 )
 
@@ -76,7 +76,7 @@ const txtMapper = new Map<TextTypes, any>([
     [TextTypes.ins, Ins],
     [TextTypes.sup, Sup],
     [TextTypes.sub, Sub],
-    [TextTypes.plain, Plain],
+    [TextTypes.custom, Custom],
 ])
 
 const Text: FC<TextProps> = ({
@@ -89,7 +89,7 @@ const Text: FC<TextProps> = ({
         return null
     }
     let style = null
-    if (type === TextTypes.plain) {
+    if (type === TextTypes.custom) {
         style = {
             'font-size': props.fontSize || 12,
             'font-weight': props.fontWeight || 500,

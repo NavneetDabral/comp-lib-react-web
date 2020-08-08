@@ -12,6 +12,7 @@ interface CheckBoxProps {
     title: string
     size?: number
     color?: string
+    onChange: (id: string) => void
 }
 
 const Checkbox: FC<CheckBoxProps> = ({
@@ -22,18 +23,23 @@ const Checkbox: FC<CheckBoxProps> = ({
     if (hide) {
         return null
     }
+    const handleChange = () => props.onChange(props.title)
     const checkIcon = isChecked ? (
         <CheckBox size={props.size || 16} color={props.color} />
     ) : (
         <CheckBoxOutlineBlank size={props.size || 16} color={props.color} />
     )
     return (
-        <Box style={styles.container}>
+        <Box
+            style={styles.container}
+            overlayColor="#FAFAFA"
+            onClick={handleChange}
+        >
             {checkIcon}
             <Spacer size={10} />
             <Text
                 content={props.title}
-                type={TextTypes.plain}
+                type={TextTypes.custom}
                 fontSize={props.size || 16}
                 textColor={props.color}
             />

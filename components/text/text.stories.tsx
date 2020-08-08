@@ -15,9 +15,17 @@ const Basic = () => (
         content={text('content', `hello storybook`)}
         type={select('TextType', Object.values(TextTypes), TextTypes.h1)}
         textColor={text('color', ``)}
+    />
+)
+
+const Custom = () => (
+    <Text
+        content={text('content', `hello storybook`)}
+        type={TextTypes.custom}
+        textColor={text('color', ``)}
         fontSize={number('size', 12)}
         fontWeight={text('weight', 'bold')}
     />
 )
 
-export { Basic }
+export { Basic, Custom }

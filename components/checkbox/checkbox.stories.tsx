@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Checkbox } from './index'
 import centered from '@storybook/addon-centered/react'
-import { withKnobs, select, text, number } from '@storybook/addon-knobs'
+import { withKnobs, text, number } from '@storybook/addon-knobs'
 
 export default {
     title: 'Checkbox',
@@ -9,13 +9,21 @@ export default {
     decorators: [withKnobs, centered],
 }
 
-const Basic = () => (
-    <Checkbox
-        title={text('title', 'Milk')}
-        size={number('size', 16)}
-        color={text('color', 'blue')}
-        isChecked
-    />
-)
+const Basic = () => {
+    const [isChecked, setChecked] = useState(false)
+    const handleChange = (value: string) => {
+        console.log(value)
+        setChecked(!isChecked)
+    }
+    return (
+        <Checkbox
+            title={text('title', '2020')}
+            size={number('size', 32)}
+            color={text('color', '#714cfe')}
+            isChecked={isChecked}
+            onChange={handleChange}
+        />
+    )
+}
 
 export { Basic }
